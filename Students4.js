@@ -21,6 +21,8 @@ let studentProto = {
 };
 
 function Student(name, gpa, courses) {
+//    let x = Object.getPrototypeOf(this);
+//    console.log("same? " + (x === studentProto));
     this.name = name;
     this.gpa = gpa;
     this.courses = courses;
@@ -28,11 +30,14 @@ function Student(name, gpa, courses) {
 
 Student.prototype = studentProto;
 
-
 let fred = new Student("Fred", 3.2, []);
 console.log("" + fred);
 
+let x = Object.getPrototypeOf(fred);
+console.log("same? " + (x === studentProto));
 
+// THIS WOULD BE BAD!
+//Student("Fred", 3.2, []);
 //
 //
 //let roster = [];

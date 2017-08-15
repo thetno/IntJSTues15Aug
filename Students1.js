@@ -6,6 +6,11 @@ let studentProto = {
     toString: function () {
         return "a Student, name : " + this.name;
     },
+    getGpaComparator: function (t) {
+        return function (s) {
+            return s.gpa > t;
+        };
+    }
 };
 
 function makeAStudent(name, gpa, courses) {
@@ -59,6 +64,16 @@ function getMatchingStudents(roster, matcher) {
     return smart;
 }
 
+function isSmart(t, s) {
+    return s.gpa > t;
+}
+
+function makeFunctionByPartialApplication(f, v) {
+    return function (a) {
+        return f(v, a);
+    };
+}
+
 console.log("-----------------------------");
 //let smart = getSmartStudent(roster, 3.5);
 //function smartStudent(s) {
@@ -69,8 +84,24 @@ console.log("-----------------------------");
 //let smart = getMatchingStudents(roster, function (s) {
 //    return s.gpa > 3.5;
 //});
-let smart = getMatchingStudents(roster, s => s.gpa > 3.5);
+let smart = getMatchingStudents(roster,
+        studentProto.getGpaComparator(3));
 for (let s of smart) {
+    console.log("> " + s);
+}
+console.log("------------------------------------");
+let smart2 = getMatchingStudents(roster,
+        makeFunctionByPartialApplication(isSmart, 3.8)
+        );
+for (let s of smart2) {
+    console.log("> " + s);
+}
+
+console.log("------------------------------------");
+let smart3 = getMatchingStudents(roster,
+        isSmart.bind(undefined, 3)
+        );
+for (let s of smart3) {
     console.log("> " + s);
 }
 

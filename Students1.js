@@ -6,10 +6,25 @@ let studentProto = {
     toString: function () {
         return "a Student, name : " + this.name;
     },
+    
+    // NO NO NO NO NO!!!!
+//    toString: ()=>"a Student, name : " + this.name,
     getGpaComparator: function (t) {
         return function (s) {
             return s.gpa > t;
         };
+    },
+    smarterThanMe : function(s) {
+        return s.gpa > this.gpa;
+    },
+//    getIsSmarterThanMe : function() {
+//        let self = this;
+//        return function(s) {
+//            return s.gpa > self.gpa;
+//        };
+//    },
+    getIsSmarterThanMe : function() {
+        return s=>s.gpa > this.gpa
     }
 };
 
@@ -105,3 +120,14 @@ for (let s of smart3) {
     console.log("> " + s);
 }
 
+console.log("------------------------------------");
+console.log(roster[0].smarterThanMe(roster[1]));
+console.log(roster[1].smarterThanMe(roster[2]));
+
+console.log("------------------------------------");
+let smart4 = getMatchingStudents(roster,
+    roster[1].getIsSmarterThanMe()
+    );
+for (let s of smart4) {
+    console.log("> " + s);
+}

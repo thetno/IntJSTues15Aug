@@ -34,3 +34,6 @@ let obj = { name : "fred", gpa : 3.2 };
 let {name, gpa: grade} = obj;
 console.log("name is " + name);
 console.log("grade is " + grade);
+
+let [,,p,q,,,,s] = a3;
+console.log("p is " + p + " q is " + q + " s is " + s);

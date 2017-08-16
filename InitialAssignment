@@ -1,0 +1,15 @@
+Initial Assignment
+==================
+
+"Represent" students, such that a student has:
+ - a name
+ - a gpa (0->4, single overall grade)
+ - a number of courses being taken (use plain text course name)
+
+Represent a school roster (several students)
+
+Print out the roster
+Sort the roster into "order", and print again
+Select a sub-roster of just the students who are "smart" 
+ (e.g. gpa > 3) and print that sub-roster
+

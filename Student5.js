@@ -29,3 +29,15 @@ console.log(fred.addressMe);
 fred.addressMe = "AlbertyFreddy";
 console.log(fred.addressMe);
 
+console.log("type of Student " + (typeof Student));
+let p = Student.prototype;
+console.log("p.toString " + p.toString);
+
+for (let k in p ) {
+    console.log("field called " + k + " found");
+}
+
+console.log(p);
+
+Student.MAX_COURSE_COUNT = 10;
+console.log("max courses " + Student.MAX_COURSE_COUNT);

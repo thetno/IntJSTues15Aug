@@ -16,7 +16,7 @@ let studentProto = {
         return s.gpa > this.gpa;
     },
     getIsSmarterThanMe: function () {
-        return s => s.gpa > this.gpa
+        return s => s.gpa > this.gpa;
     }
 };
 

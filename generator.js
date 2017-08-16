@@ -31,7 +31,17 @@ for (let v of numbers2()) {
     console.log(" -- " + v);
 }
 
+function *fibonacci() {
+    let [v1, v2] = [1, 1];
+    while (v1 < 1000) {
+        yield v1;
+        [v1, v2] = [v2, v1+v2];
+    }
+}
 
+for (let n of fibonacci()) {
+    console.log("> " + n);
+}
 
 
 
